@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-export const API_URL = ' http://172.31.29.247:5000/server/api';
+export const API_URL = 'https://51.21.247.190:5000/server/api';
 // export const API_URL = 'https://dockly-website.onrender.com/server/api';
 
 export interface WishlistRequest {
