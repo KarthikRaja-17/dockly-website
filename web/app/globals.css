@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 84%, 4.9%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 16%, 46.9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 4.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 4.9%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222, 47%, 11%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 47%, 11%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(222, 84%, 4.9%);
+  --radius: 0.75rem;
+
+  /* Custom Dockly colors */
+  --dockly-purple: hsl(262, 83%, 58%);
+  --dockly-cyan: hsl(188, 94%, 43%);
+  --dockly-emerald: hsl(160, 84%, 39%);
+  --dockly-orange: hsl(25, 95%, 53%);
+  --dockly-pink: hsl(327, 73%, 57%);
+  --dockly-yellow: hsl(48, 96%, 53%);
+  --dockly-red: hsl(0, 84%, 60%);
+  --dockly-blue: hsl(217, 91%, 60%);
+  --dockly-indigo: hsl(239, 84%, 67%);
+  --dockly-green: hsl(142, 76%, 36%);
+}
+
+.dark {
+  --background: hsl(222, 84%, 4.9%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 32%, 17%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --popover: hsl(222, 84%, 4.9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(222, 84%, 4.9%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 32%, 17%);
+  --input: hsl(217, 32%, 17%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(217, 32%, 17%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(217, 32%, 17%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62%, 30%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(212, 72%, 59%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-gradient-shift {
+  animation: gradientShift 8s ease infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Gradient backgrounds */
+.hero-gradient {
+  background: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(262, 83%, 58%) 25%, hsl(188, 94%, 43%) 50%, hsl(160, 84%, 39%) 75%, hsl(25, 95%, 53%) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(221, 83%, 53%), hsl(262, 83%, 58%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Lottie placeholder styling */
+.lottie-placeholder {
+  background: linear-gradient(45deg, hsl(210, 40%, 98%), hsl(188, 94%, 93%));
+  border: 2px dashed hsl(188, 94%, 43%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.lottie-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom button gradients */
+.btn-gradient-primary {
+  background: linear-gradient(135deg, hsl(221, 83%, 53%), hsl(262, 83%, 58%));
+}
+
+.btn-gradient-emerald {
+  background: linear-gradient(135deg, hsl(160, 84%, 39%), hsl(142, 76%, 36%));
+}
+
+.btn-gradient-cyan {
+  background: linear-gradient(135deg, hsl(188, 94%, 43%), hsl(217, 91%, 60%));
+}
+
+.btn-gradient-orange {
+  background: linear-gradient(135deg, hsl(25, 95%, 53%), hsl(48, 96%, 53%));
+}
+
+.btn-gradient-pink {
+  background: linear-gradient(135deg, hsl(327, 73%, 57%), hsl(0, 84%, 60%));
+}
+
+.btn-gradient-purple {
+  background: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(239, 84%, 67%));
+}
+
+/* Media queries for responsive design */
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex !important;
+  }
+  
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+  
+  .md\:text-6xl {
+    font-size: 3.75rem !important;
+    line-height: 1 !important;
+  }
+  
+  .md\:hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  
+  .lg\:col-span-2 {
+    grid-column: span 2 / span 2 !important;
+  }
+  
+  .lg\:h-\[500px\] {
+    height: 500px !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:flex-row {
+    flex-direction: row !important;
+  }
+}
