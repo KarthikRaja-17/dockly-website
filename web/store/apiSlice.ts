@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-export const API_URL = 'https://ec2-51-21-247-190.eu-north-1.compute.amazonaws.com/server/api';
+export const API_URL = 'https://api.dockly.me/server/api';
 // export const API_URL = 'https://dockly-website.onrender.com/server/api';
 
 export interface WishlistRequest {
